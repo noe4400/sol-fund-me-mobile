@@ -1,6 +1,10 @@
+import './unistyles';
+import * as SplashScreen from 'expo-splash-screen';
 import { registerRootComponent } from 'expo';
 
 import App from './App';
+
+void SplashScreen.preventAutoHideAsync();
 
 // registerRootComponent calls AppRegistry.registerComponent('main', () => App);
 // It also ensures that whether you load the app in Expo Go or in a native build,
