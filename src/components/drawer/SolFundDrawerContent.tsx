@@ -2,11 +2,10 @@ import {
   DrawerContentScrollView,
   type DrawerContentComponentProps,
 } from '@react-navigation/drawer';
-import Ionicons from '@expo/vector-icons/Ionicons';
-import { LinearGradient } from 'expo-linear-gradient';
 import { Pressable, type PressableStateCallbackType, Text, View } from 'react-native';
-import { StyleSheet, useUnistyles } from 'react-native-unistyles';
+import { StyleSheet } from 'react-native-unistyles';
 
+import { MobileWalletDrawerCta } from '../wallet/MobileWalletDrawerCta';
 import type { RootDrawerParamList } from '../../navigation/types';
 import { DrawerNavItem } from './DrawerNavItem';
 
@@ -17,7 +16,6 @@ const NAV_ITEMS: { key: keyof RootDrawerParamList; label: string }[] = [
 ];
 
 export function SolFundDrawerContent(props: DrawerContentComponentProps) {
-  const { theme } = useUnistyles();
   const activeRouteName = props.state.routes[props.state.index]?.name as keyof RootDrawerParamList;
 
   const navigateTo = (name: keyof RootDrawerParamList) => {
@@ -45,28 +43,7 @@ export function SolFundDrawerContent(props: DrawerContentComponentProps) {
         </View>
 
         <View style={styles.footer}>
-          <Pressable
-            accessibilityRole="button"
-            accessibilityLabel="Connect wallet"
-            onPress={() => {}}
-            style={styles.walletCta}
-          >
-            <LinearGradient
-              colors={[...theme.gradients.primary]}
-              start={{ x: 0, y: 0.5 }}
-              end={{ x: 1, y: 0.5 }}
-              style={styles.walletGradient}
-            >
-              <Ionicons
-                name="wallet-outline"
-                size={16}
-                color={theme.colors.onPrimary}
-                accessibilityElementsHidden
-                importantForAccessibility="no-hide-descendants"
-              />
-              <Text style={styles.walletLabel}>Connect Wallet</Text>
-            </LinearGradient>
-          </Pressable>
+          <MobileWalletDrawerCta />
         </View>
       </DrawerContentScrollView>
 
@@ -107,23 +84,6 @@ const styles = StyleSheet.create((theme, rt) => ({
     paddingTop: theme.spacing.md + 1,
     borderTopWidth: StyleSheet.hairlineWidth,
     borderTopColor: theme.colors.drawerBorder,
-  },
-  walletCta: (state: PressableStateCallbackType) => ({
-    borderRadius: theme.radii.sm,
-    overflow: 'hidden',
-    opacity: state.pressed ? 0.85 : 1,
-  }),
-  walletGradient: {
-    minHeight: 36,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: theme.spacing.sm,
-    paddingHorizontal: theme.spacing.lg,
-  },
-  walletLabel: {
-    ...theme.typography.button,
-    color: theme.colors.onPrimary,
   },
   closeBtn: (state: PressableStateCallbackType) => ({
     position: 'absolute',

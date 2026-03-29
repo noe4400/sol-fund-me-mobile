@@ -1,4 +1,5 @@
 import 'react-native-gesture-handler';
+import './polyfill';
 import { enableScreens } from 'react-native-screens';
 
 import './unistyles';
