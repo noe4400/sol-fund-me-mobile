@@ -17,6 +17,7 @@
     "@react-navigation/native": "^7.2.2",
     "@solana/web3.js": "^1.98.4",
     "@wallet-ui/react-native-web3js": "^4.0.1",
+    "axios": "^1.14.0",
     "expo": "55.0.10-canary-20260328-bdc6273",
     "expo-dev-client": "^55.0.19",
     "expo-font": "55.0.5-canary-20260328-bdc6273",
