@@ -1,4 +1,9 @@
+import 'react-native-gesture-handler';
+import { enableScreens } from 'react-native-screens';
+
 import './unistyles';
+
+enableScreens();
 import * as SplashScreen from 'expo-splash-screen';
 import { registerRootComponent } from 'expo';
 

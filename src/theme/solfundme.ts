@@ -32,9 +32,15 @@ const spacing = {
   xxxl: 40,
 } as const;
 
-/** Primary CTA gradient — Figma node 3:1692 (e.g. “New Campaign”). */
+/** Primary CTA gradient — Figma (My Campaigns / Home CTAs). */
 const gradients = {
   primary: ['#AD46FF', '#F6339A'] as const,
+  /** Home hero H1 — node 3:672 / 3:936 */
+  headlineText: ['#FFFFFF', '#E9D4FF', '#FCCEE8'] as const,
+  /** Header wordmark — node 3:971 */
+  brandText: ['#C27AFF', '#FB64B6'] as const,
+  /** Hero section ambience — node 3:928 */
+  heroBackdrop: ['rgba(89, 22, 139, 0.2)', 'rgba(3, 7, 18, 0)', 'rgba(134, 16, 67, 0.2)'] as const,
 } as const;
 
 const category = {
@@ -111,6 +117,37 @@ const figmaTypography = {
     lineHeight: 20,
     letterSpacing: -0.15,
   },
+  /** Home marketing — node 3:672 */
+  marketingHeadline: {
+    fontFamily: f.bold,
+    fontSize: 36,
+    lineHeight: 40,
+    letterSpacing: 0.37,
+  },
+  marketingBody: {
+    fontFamily: f.regular,
+    fontSize: 18,
+    lineHeight: 28,
+    letterSpacing: -0.44,
+  },
+  statValue: {
+    fontFamily: f.bold,
+    fontSize: 30,
+    lineHeight: 36,
+    letterSpacing: 0.4,
+  },
+  statLabel: {
+    fontFamily: f.regular,
+    fontSize: 14,
+    lineHeight: 20,
+    letterSpacing: -0.15,
+  },
+  drawerNav: {
+    fontFamily: f.regular,
+    fontSize: 16,
+    lineHeight: 24,
+    letterSpacing: -0.31,
+  },
 } as const;
 
 export const darkTheme = {
@@ -131,6 +168,19 @@ export const darkTheme = {
     chipActiveBg: 'rgba(173, 70, 255, 0.2)',
     chipInactiveBg: 'transparent',
     chipInactiveBorder: '#30363D',
+    headerBar: 'rgba(16, 24, 40, 0.8)',
+    headerBarBorder: '#000000',
+    heroSectionBorder: 'rgba(173, 70, 255, 0.2)',
+    poweredBadgeBg: 'rgba(173, 70, 255, 0.1)',
+    poweredBadgeBorder: 'rgba(173, 70, 255, 0.2)',
+    statCardSurface: 'rgba(30, 41, 57, 0.3)',
+    secondaryCtaSurface: '#0A0A0A',
+    secondaryCtaBorder: 'rgba(173, 70, 255, 0.3)',
+    /** Drawer — Figma node 19:2216 */
+    drawerBackground: '#101828',
+    drawerBorder: 'rgba(173, 70, 255, 0.2)',
+    drawerItemInactive: '#D1D5DC',
+    drawerOverlay: 'rgba(0, 0, 0, 0.5)',
     overlay: 'rgba(0,0,0,0.45)',
     danger: '#EF4444',
     success: '#22C55E',
@@ -161,6 +211,18 @@ export const lightTheme = {
     chipActiveBg: '#9333EA',
     chipInactiveBg: '#FFFFFF',
     chipInactiveBorder: '#E5E7EB',
+    headerBar: 'rgba(255, 255, 255, 0.92)',
+    headerBarBorder: '#E5E7EB',
+    heroSectionBorder: 'rgba(147, 51, 234, 0.2)',
+    poweredBadgeBg: 'rgba(147, 51, 234, 0.08)',
+    poweredBadgeBorder: 'rgba(147, 51, 234, 0.25)',
+    statCardSurface: 'rgba(243, 244, 246, 0.95)',
+    secondaryCtaSurface: '#FFFFFF',
+    secondaryCtaBorder: 'rgba(147, 51, 234, 0.35)',
+    drawerBackground: '#FFFFFF',
+    drawerBorder: 'rgba(147, 51, 234, 0.2)',
+    drawerItemInactive: '#4B5563',
+    drawerOverlay: 'rgba(17, 24, 39, 0.4)',
     overlay: 'rgba(17,24,39,0.35)',
     danger: '#DC2626',
     success: '#16A34A',
