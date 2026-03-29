@@ -58,7 +58,10 @@ export default function HomeScreen() {
             </Text>
 
             <View style={styles.ctaRow}>
-              <PrimaryGradientButton title="Start a Campaign" />
+              <PrimaryGradientButton
+                title="Start a Campaign"
+                onPress={() => navigation.navigate('StartCampaign')}
+              />
               <OutlineTextButton title="Explore Campaigns" />
             </View>
 

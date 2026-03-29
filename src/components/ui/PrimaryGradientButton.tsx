@@ -1,11 +1,15 @@
+import Ionicons from '@expo/vector-icons/Ionicons';
 import { LinearGradient } from 'expo-linear-gradient';
-import { Pressable, Text, type PressableProps, type PressableStateCallbackType } from 'react-native';
+import type { ComponentProps } from 'react';
+import { Pressable, Text, type PressableProps, type PressableStateCallbackType, View } from 'react-native';
 import { StyleSheet, useUnistyles } from 'react-native-unistyles';
 
 type PrimaryGradientButtonProps = Pick<PressableProps, 'onPress' | 'accessibilityLabel' | 'disabled'> & {
   title: string;
   /** Unistyles `size` variant on the gradient container. */
   size?: 'md' | 'sm';
+  /** Optional leading icon (e.g. `rocket-outline` on Launch Campaign). */
+  iconName?: ComponentProps<typeof Ionicons>['name'];
 };
 
 const styles = StyleSheet.create((theme) => ({
@@ -31,6 +35,13 @@ const styles = StyleSheet.create((theme) => ({
           paddingHorizontal: theme.spacing.lg,
         },
       },
+      layout: {
+        labelOnly: {},
+        withIcon: {
+          flexDirection: 'row',
+          gap: theme.spacing.sm,
+        },
+      },
     },
   },
   label: {
@@ -42,11 +53,12 @@ const styles = StyleSheet.create((theme) => ({
 export function PrimaryGradientButton({
   title,
   size = 'md',
+  iconName,
   onPress,
   accessibilityLabel,
   disabled,
 }: PrimaryGradientButtonProps) {
-  styles.useVariants({ size });
+  styles.useVariants({ size, layout: iconName ? 'withIcon' : 'labelOnly' });
   const { theme } = useUnistyles();
 
   return (
@@ -64,6 +76,11 @@ export function PrimaryGradientButton({
         end={{ x: 1, y: 0.5 }}
         style={styles.gradient}
       >
+        {iconName ? (
+          <View accessibilityElementsHidden importantForAccessibility="no-hide-descendants">
+            <Ionicons name={iconName} size={16} color={theme.colors.onPrimary} />
+          </View>
+        ) : null}
         <Text style={styles.label}>{title}</Text>
       </LinearGradient>
     </Pressable>
